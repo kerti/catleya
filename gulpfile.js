@@ -241,6 +241,10 @@ gulp.task('watch', function () {
 
 gulp.task('weinre', function() {
   if (typeof config.weinre === 'object') {
+    config.weinre.verbose =      false;
+    config.weinre.debug =        false;
+    config.weinre.readTimeout =  5;
+    config.weinre.deathTimeout = 15;
     require('./node_modules/weinre/node_modules/coffee-script');
     var weinre = require('./node_modules/weinre/lib/weinre');
     weinre.run(config.weinre);
