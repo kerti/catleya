@@ -7,4 +7,8 @@ angular.module('Catleya', [
 
 .config(function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'home.html'});
+  $routeProvider.when('/switches', {templateUrl: 'switches.html'});
+  $routeProvider.when('/timers', {templateUrl: 'timers.html'});
+  $routeProvider.when('/devices', {templateUrl: 'devices.html'});
+  $routeProvider.when('/help', {templateUrl: 'help.html'});
 });
