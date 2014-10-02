@@ -1,14 +1,37 @@
 angular.module('Catleya', [
   'ngRoute',
   'ngTouch',
-  'mobile-angular-ui',
-  'Catleya.controllers.Main'
+  'mobile-angular-ui'
 ])
 
-.config(function($routeProvider) {
-  $routeProvider.when('/', {templateUrl: 'home.html'});
-  $routeProvider.when('/switches', {templateUrl: 'switches.html'});
-  $routeProvider.when('/timers', {templateUrl: 'timers.html'});
-  $routeProvider.when('/devices', {templateUrl: 'devices.html'});
-  $routeProvider.when('/help', {templateUrl: 'help.html'});
-});
+.config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/', {
+      templateUrl: 'home.html',
+      controller: 'HomeController'
+    })
+    .when('/switches', {
+      templateUrl: 'switches.html',
+      controller: 'SwitchController',
+      resolve: {
+      	getConfig: ['ConfigService', function(ConfigService) {
+      		return ConfigService.get();
+      	}]
+      }
+    })
+    .when('/timers', {
+      templateUrl: 'timers.html',
+      controller: 'TimerController'
+    })
+    .when('/devices', {
+      templateUrl: 'devices.html',
+      controller: 'DeviceController'
+    })
+    .when('/help', {
+      templateUrl: 'help.html',
+      controller: 'HelpController'
+    })
+    .otherwise({
+    	redirectTo: '/'
+    });
+}]);

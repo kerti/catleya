@@ -1,36 +1,40 @@
-<div class="scrollable">
-  <div class="scrollable-content">
-  	<div class="list-group">
-      <form action="" id="">
+<div content-for="title">
+  <span>Timers</span>
+</div>
 
-        <div class="list-group-item media">
-          <div bs-panel title="Front Porch">
-            <input bs-form-control
-                   type="text" 
-                   ng-model="device.name"
-                   label="Name" 
-                   label-class="col-xs-3 col-sm-2 col-lg-1" 
-                   class="col-xs-9 col-sm-10 col-lg-11"
-                   placeholder="Device Name"
-                   />
+<div class="scrollable">
+ <div class="scrollable-content container-fluid section">
+    <div class="panel-group" id="accordion">
+      <!-- repeater goes here -->
+      <div class="panel panel-default">
+        <div class="panel-heading" toggle target="collapseOne">
+          <h4 class="panel-title">
+              #1 Front Porch
+          </h4>
+        </div>
+        <div id="collapseOne" toggleable active-class="in" exclusion-group="accordion1" default="active" class="panel-collapse collapse">
+          <div class="panel-body">
             <switch bs-form-control
                     ng-change="switchChanged()"
-                    ng-model="device.auto"
+                    ng-model="timer.active"
                     ng-click="switchClicked()"
-                    label="Auto"
+                    label="Active"
                     label-class="col-xs-3 col-sm-2 col-lg-1"
                     class="col-xs-9 col-sm-10 col-lg-11" 
                     >
-            </switch>
-          </div>
-          <div bs-panel class="form-actions">
-            <button class="btn btn-primary">
-              Add Time Range
-            </button>
+                    </switch>
+            <input bs-form-control
+                   type="text"
+                   ng-model="timer.devicename"
+                   label="Timer 1" 
+                   label-class="col-xs-3 col-sm-2 col-lg-1"
+                   class="col-xs-9 col-sm-10 col-lg-11"
+                   placeholder=""
+                   />
           </div>
         </div>
-
-      </form>
+      </div>
+      <!-- repeater ends here -->
     </div>
   </div>
 </div>

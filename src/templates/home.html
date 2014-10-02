@@ -1,55 +1,65 @@
-<div class="scrollable">  
-  <div class="scrollable-content">
+<div content-for="title">
+  <span>Catleya</span>
+</div>
 
+<div class="scrollable">
+  <div class="scrollable-content">
     <div class="list-group">
+
       <div class="list-group-item">
-        <h1>Welcome<br/>
+        <h1>Welcome!<br/>
         <small>This is your home automation system's control panel</small>
         </h1>
       </div>
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-lightbulb-o feature-icon text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">Switches</h3>
-            Turn a device on or off
-        </div>
-      </div>
 
+      <a href="#/switches" class="blackcolor">
+        <div class="list-group-item media">
+          <div class="pull-right">
+            <i class="fa fa-lightbulb-o feature-icon text-primary"></i>
+          </div>
+          <div class="media-body">
+              <h3 class="media-heading">Switches</h3>
+              Turn a device on or off
+          </div>
+        </div>
+      </a>
 
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-clock-o feature-icon text-primary"></i>
+      <a href="#/timers" class="blackcolor">
+        <div class="list-group-item media">
+          <div class="pull-right">
+            <i class="fa fa-clock-o feature-icon text-primary"></i>
+          </div>
+          <div class="media-body">
+              <h3 class="media-heading">Timers</h3>
+              Set timers to automatically switch devices on or off
+          </div>
         </div>
-        <div class="media-body">
-            <h3 class="media-heading">Timers</h3>
-            Set timers to automatically switch devices on or off
-        </div>
-      </div>
+      </a>
 
+      <a href="#/devices" class="blackcolor">
+        <div class="list-group-item media">
+          <div class="pull-right">
+            <i class="fa fa-gear feature-icon text-primary"></i>
+          </div>
+          <div class="media-body">
+              <h3 class="media-heading">Devices</h3>
+              Set names, controller pins, and default settings for your devices
+          </div>
+        </div>
+      </a>
 
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-gear feature-icon text-primary"></i>
+      <a href="#/help" class="blackcolor">
+        <div class="list-group-item media">
+          <div class="pull-right">
+            <i class="fa fa-life-ring feature-icon text-primary"></i>
+          </div>
+          <div class="media-body">
+              <h3 class="media-heading">How To Use</h3>
+              Learn how to use this application
+          </div>
         </div>
-        <div class="media-body">
-            <h3 class="media-heading">Devices</h3>
-            Set names, controller pins, and default settings for your devices
-        </div>
-      </div>
-
-      <div class="list-group-item media">
-        <div class="pull-right">
-          <i class="fa fa-life-ring feature-icon text-primary"></i>
-        </div>
-        <div class="media-body">
-            <h3 class="media-heading">How To Use</h3>
-            Learn how to use this application
-        </div>
-      </div>
+      </a>
 
     </div>
-
   </div>
 </div>
