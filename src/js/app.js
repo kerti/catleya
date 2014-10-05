@@ -15,8 +15,11 @@ angular.module('Catleya', [
       controller: 'SwitchController',
       resolve: {
       	getConfig: ['ConfigService', function(ConfigService) {
-      		return ConfigService.get();
-      	}]
+      		return ConfigService;
+      	}],
+        setPin: ['PinControlService', function(PinControlService) {
+          return PinControlService;
+        }]
       }
     })
     .when('/timers', {
