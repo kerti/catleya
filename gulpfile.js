@@ -162,7 +162,7 @@ gulp.task('fonts', function() {
 gulp.task('html', function() {
   var inject = [];
   if (typeof config.weinre === 'object') {
-    inject.push('<script src="http://'+config.weinre.boundHost+':'+config.weinre.httpPort+'/target/target-script-min.js"></script>');
+    // inject.push('<script src="http://'+config.weinre.boundHost+':'+config.weinre.httpPort+'/target/target-script-min.js"></script>');
   }
   if (config.cordova) {
     // inject.push('<script src="cordova.js"></script>');
@@ -214,8 +214,8 @@ gulp.task('js', function() {
     .pipe(concat('app.js'))
     .pipe(ngAnnotate())
     .pipe(uglify())
-    .pipe(sourcemaps.write('.'))
     .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 

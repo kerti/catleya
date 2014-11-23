@@ -6,23 +6,23 @@
   <div class="scrollable-content">
   	<div class="list-group">
 
-      <div class="list-group-item media" data-ng-repeat="light in config.lights">
-        <div class="pull-right">
-          <div data-ng-if="!light.auto">
-            <i ng-class="{'graycolor': light.state == 'off'}" class="fa fa-lightbulb-o feature-icon text-primary"></i>
+      <div class="list-group-item media" data-ng-repeat="device in devices">
+        <div class="pull-right" ng-click="toggle({{ $index }})">
+          <div data-ng-if="!device.auto">
+            <i ng-class="{'graycolor': device.state == 'off'}" class="fa fa-lightbulb-o feature-icon text-primary"></i>
           </div>
-          <div data-ng-if="light.auto">
-            <i ng-class="{'graycolor': light.state == 'off'}" class="fa fa-clock-o feature-icon text-primary"></i>
+          <div data-ng-if="device.auto">
+            <i ng-class="{'graycolor': device.state == 'off'}" class="fa fa-clock-o feature-icon text-primary"></i>
           </div>
         </div>
         <div class="media-body">
-          <h3 class="media-heading">{{ light.name }}</h3>
-          <p data-ng-if="!light.auto">Manually controlled.</p>
-          <p data-ng-if="light.auto">
+          <h3 class="media-heading">{{ device.name }}</h3>
+          <p data-ng-if="!device.auto">Manually controlled.</p>
+          <p data-ng-if="device.auto">
             Controlled by timer. The device will be on at the following times:
           </p>
-          <ul data-ng-if="light.auto">
-            <li data-ng-repeat="timer in light.timers">
+          <ul data-ng-if="device.auto">
+            <li data-ng-repeat="timer in device.timers">
               {{ timer.start }} - {{ timer.end }}
             </li>
           </ul>
