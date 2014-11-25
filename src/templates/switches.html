@@ -5,9 +5,8 @@
 <div class="scrollable">
   <div class="scrollable-content">
   	<div class="list-group">
-
       <div class="list-group-item media" data-ng-repeat="device in devices">
-        <div class="pull-right" ng-click="toggle({{ $index }})">
+        <div class="pull-right" ng-click="toggleDevice({{ $index }})">
           <div data-ng-if="!device.auto">
             <i ng-class="{'graycolor': device.state == 'off'}" class="fa fa-lightbulb-o feature-icon text-primary"></i>
           </div>
@@ -28,7 +27,19 @@
           </ul>
         </div>
       </div>
-      
     </div>
   </div>
+</div>
+
+<div overlay="ovManualOverride">
+  <h4 class="overlay-title">Confirm Manual Override</h4>
+  <p>
+    Changing the state of this device<br />
+    will set it to manual control.<br /><br />
+    Proceed?
+  </p>
+  <p toggle="off" bubble target="ovManualOverride">
+    <span class="btn btn-primary" ng-click="confirmOverride()">Yes</span>
+    <span class="btn btn-default" ng-click="cancelOverride()">No</span>
+  </p>  
 </div>

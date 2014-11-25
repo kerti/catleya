@@ -3,7 +3,7 @@ angular.module('Catleya')
   var configService = {
     getDevices: function() {
       var promise = $http
-        .get('api/devices/', { "test": "tetstsetsetserserser" })
+        .get('api/devices/')
         .then(function (response) {
           return response.data;
         });
