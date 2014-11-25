@@ -1,9 +1,22 @@
 angular.module('Catleya')
 .controller('SwitchController', ['$scope', 'ConfigService', 'PinControlService', function($scope, ConfigService, PinControlService){
-  $scope.overrideIndex = null;
-  ConfigService.getActiveDevices().then(function (devices) {
-    $scope.devices = devices;
-  });
+  
+  $scope.initialize = function() {
+    $scope.errorMessage = null;
+    $scope.overrideIndex = null;
+  };
+
+  $scope.loadDevices = function () {
+    ConfigService.getActiveDevices().then(function (result) {
+      if (null === result.errorMessage) {
+        $scope.devices = result.data;
+      } else {
+        $scope.errorMessage = result.errorMessage;
+        $scope.showError();
+      }
+    });
+  };
+
   $scope.toggleDevice = function (index) {
     var device = $scope.devices[index];
     if (null != device && undefined != device) {
@@ -14,12 +27,12 @@ angular.module('Catleya')
         $scope.performToggle(device, index);
       }
     }
-  }
+  };
 
   $scope.cancelOverride = function() {
     $scope.overrideIndex = null;
     $scope.toggle('ovManualOverride', 'off');
-  }
+  };
 
   $scope.confirmOverride = function() {
     if (null != $scope.overrideIndex)  {
@@ -31,7 +44,7 @@ angular.module('Catleya')
     }
     $scope.overrideIndex = null;
     $scope.toggle('ovManualOverride', 'off');
-  }
+  };
 
   $scope.performToggle = function (device, index) {
     if (device.state === 'on') {
@@ -40,5 +53,20 @@ angular.module('Catleya')
         device.state = 'on';
     }
     ConfigService.putDevice(device, index);
-  }
+  };
+
+  $scope.showError = function() {
+    if (null != $scope.errorMessage) {
+      $scope.toggle('ovErrorMessage', 'on');
+    }
+  };
+
+  $scope.dismissError = function () {
+    $scope.toggle('ovErrorMessage', 'off');
+    $scope.errorMessage = null;
+  };
+
+  $scope.initialize();
+  $scope.loadDevices();
+
 }]);

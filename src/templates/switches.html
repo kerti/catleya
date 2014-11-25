@@ -43,3 +43,14 @@
     <span class="btn btn-default" ng-click="cancelOverride()">No</span>
   </p>  
 </div>
+
+<div overlay="ovErrorMessage">
+  <h4 class="overlay-title">Error!</h4>
+  <p>
+    Oops! Something's not right.<br /><br />
+    {{ errorMessage }}
+  </p>
+  <p toggle="off" bubble target="ovErrorMessage">
+    <span class="btn btn-primary">OK</span>
+  </p>  
+</div>
